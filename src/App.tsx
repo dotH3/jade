@@ -63,7 +63,7 @@ function App() {
                 enabled: false
               },
               readOnly: true,
-              lineNumbers: false
+              lineNumbers: 'off'
             }
           }
         />
