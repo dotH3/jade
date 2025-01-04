@@ -1,0 +1,12 @@
+
+  .resizable-left {
+    resize: horizontal; 
+    overflow: auto;    
+    min-width: 50px;    
+  }
+  
+  .resizable-right {
+    flex: 1;          
+    overflow: auto;
+  }
+  
