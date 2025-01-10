@@ -23,7 +23,7 @@ export const Selector = ({ elements, value, setValue }: Props) => {
           "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"icon-[tabler--check] flex-shrink-0 size-4 text-primary hidden selected:block \"></span></div>",
           "extraMarkup": "<span class=\"icon-[tabler--caret-up-down] flex-shrink-0 size-4 text-base-content absolute top-1/2 end-3 -translate-y-1/2 \"></span>"
         }'
-                className="hidden!"
+                className="hidden"
             >
                 <option value="">Choose</option>
                 {elements.map((el) => (

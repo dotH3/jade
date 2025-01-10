@@ -1,6 +1,6 @@
 
   .resizable-left {
-    resize: horizontal; 
+    resize: horizontal;
     overflow: auto;    
     min-width: 50px;    
   }
