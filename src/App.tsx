@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Selector } from './components/Selector'
 import { Input } from './components/Input'
 import { Editor } from '@monaco-editor/react'
@@ -8,16 +8,15 @@ import { AxiosResponse } from 'axios'
 import { Loading } from './components/Loading'
 import { methods } from './var'
 import './resize.css'
+import { Container } from './components/Container'
 import { Sidebar } from './components/Sidebar'
 
 
 function App() {
-  const [resizeKey, setResizeKey] = useState(0);
-
 
   const [bodyValue, setBodyValue] = useState('')
   const [url, setUrl] = useState('https://httpbin.org/post')
-  const [response, setResponse] = useState<AxiosResponse<any, any>>()
+  const [response, setResponse] = useState<AxiosResponse>()
   const [responseInfo, setResponseInfo] = useState<{ time: number }>()
   const [isLoading, setIsLoading] = useState(false)
 
@@ -44,14 +43,15 @@ function App() {
 
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex p-3 gap-2'>
       {/* <Sidebar />
       <button type="button" className="btn btn-text max-sm:btn-square sm:hidden" aria-haspopup="dialog" aria-expanded="false" aria-controls="default-sidebar" data-overlay="#default-sidebar" >
         <span className="icon-[tabler--menu-2] size-5"></span>
       </button> */}
       {/* <div>hola</div> */}
-      <div className='md:flex p-3 gap-3 w-full'>
-        <div className='w-[50%] resizable-left p-3 rounded-md border-white/10 border flex flex-col gap-3'>
+      <Sidebar/>
+      <div className='md:flex gap-2 w-full'>
+        <Container className='w-full'>
           <div className='flex gap-2'>
             <div className='min-w-[100px] max-w-[100px]'>
               <Selector elements={methods} setValue={setMethod} value={method} />
@@ -75,8 +75,8 @@ function App() {
             }
           />
 
-        </div>
-        <div className='w-[50%] resizable-right p-3 rounded-md border-white/10 border flex flex-col gap-2'>
+        </Container>
+        <Container className='w-full'>
 
           {isLoading ? <Loading /> :
             (<>
@@ -111,7 +111,7 @@ function App() {
             </>
             )
           }
-        </div>
+        </Container>
       </div >
     </div>
   )
